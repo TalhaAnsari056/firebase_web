@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* .container{
+      display: flex;
+      justify-content: center;
+    } */
+    .error {
+            color: black;
+            font-size: 1.2em;
+            color: red;
+        }
+    .main {
+      display: flex;
+      /* flex-direction: column; */
+      gap: 20px;
+      justify-content: center;
+      border: 2px solid black;
+      width: 500px;
+      height: 530px;
+      text-align: center;
+      margin-left: 400px;
+      border-radius: 30px;
+      background-color: rgb(126, 119, 119);
+    }
+
+    input {
+      padding: 15px;
+      width: 240px;
+      border-radius: 10px;
+      background-color: rgb(187, 187, 214);
+      outline: none;
+      font-size: 15px;
+    }
+
+    button {
+      padding: 10px;
+      width: 150px;
+      border-radius: 10px;
+      text-align: center;
+      background-color: rgb(121, 121, 202);
+      color: black;
+      font-size: 17px;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="container"></div>
+  <div class="main">
+    <div class="form">
+      <form><br><br>
+        <input id="name" type="text" placeholder="enter Name" onInput='inputValid()' required >
+        <span class="error"></span></br></br>
+        <!-- <input id="phone" type="phone" placeholder="enter phone"><br> <br> -->
+        <input id="email"  type="text" placeholder="enter email" onInput="checkEmail()" required >
+        <span class="error"></span></br></br>
+        <input id="password" type="password" placeholder="enter password" onInput="checkPass()" required >  
+        <span class="error"></span></br></br> 
+      </form><br>
+      <button id="signUp-btn" ><br>
+      <!-- <button id="signUp-btn" onclick="signUpWithEmailPass(event)"><br> -->
+        sign up
+      </button> <br> <br>
+      <button id="google-signUp">
+        sign up with Google
+      </button>
+    </div>
+
+  </div>
+  </div>
+  <script type="module" src="./app.js"></script>
+  <!-- <script type="module" src="./firebaseSetup.js"></script> -->
+  <!-- <script src="./app.js"></script> -->
+</body>
+
+</html>
