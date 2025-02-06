@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>login</title>
   <style>
     /* .container{
       display: flex;
@@ -23,11 +23,11 @@
       justify-content: center;
       border: 2px solid black;
       width: 500px;
-      height: 650px;
+      height: 350px;
       text-align: center;
       margin-left: 400px;
       border-radius: 30px;
-      background-color: rgb(62, 38, 151);
+      background-color: rgb(26, 7, 94);
     }
 
     input {
@@ -50,7 +50,7 @@
     }
 
     body {
-      background-image: url("pic.png");
+      background-image: url("pic2.jpg");
       background-size: cover;
     }
   </style>
@@ -59,34 +59,28 @@
 <body>
 
   <div class="container"></div>
-  <h1 style="margin-left: 525px; font-size: 35px; color: rgb(233, 175, 175);">Register Yourself</h1>
+  <h1 style="margin-left: 370px; font-size: 35px; color: rgb(233, 175, 175);">login with registered email and password</h1>
   <div class="main">
     <div class="form">
       <form><br><br>
-        <input id="name" type="text" placeholder="enter Name" onInput='inputValid()' required>
-        <span class="error"></span></br></br>
         <!-- <input id="phone" type="phone" placeholder="enter phone"><br> <br> -->
         <input id="email" type="text" placeholder="enter email" onInput="checkEmail()" required>
         <span class="error"></span></br></br>
         <input id="password" type="password" placeholder="enter password" onInput="checkPass()" required>
         <span class="error"></span></br></br>
-        <input id="phoneNo" type="text" placeholder="enter your phone number" onInput="checkphoneNo()" required>
-        <span class="error"></span></br></br>
       </form><br>
       <button id="signUp-btn"><br>
         <!-- <button id="signUp-btn" onclick="signUpWithEmailPass(event)"><br> -->
-        sign up
+        login
       </button> <br> <br>
-      <button id="google-signUp">
-        sign up with Google
-      </button>
+     
       <br>
     </div>
 
   </div>
   </div>
-  <script type="module" src="./app.js"></script>
-  <script src="./app_2.js"></script>
+  <script type="module" src="./login.js"></script>
+  <script src="./login_2.js"></script>
   <!-- <script type="module" src="./firebaseSetup.js"></script> -->
 </body>
 

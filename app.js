@@ -1,47 +1,7 @@
 
 import { createUserWithEmailAndPassword ,signInWithPopup } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { auth, db,provider } from "./firebaseSetup.js";
+import { auth, db,provider , GoogleAuthProvider} from "./firebaseSetup.js";
 import { addDoc, collection } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
-
-let inputValid = () => {
-    var username = document.getElementById('name');
-    if (username.value.length < 3) {
-        username.nextElementSibling.innerText = 'atleast 3 char required'
-        username.nextElementSibling.style.display = 'block'
-        return;
-    }
-    username.nextElementSibling.style.display = 'none';
-    
-}
-// inputValid();
-let checkPass = () => {
-    
-    var password = document.getElementById('password');
-    if (password.value.length < 5) {
-        password.nextElementSibling.innerText = ' password should be of 5 chars'
-        password.nextElementSibling.style.display = 'block'
-        return;
-    }
-    password.nextElementSibling.style.display = 'none'
-}
-
-let checkEmail = () => {
-    
-    var useremail = document.getElementById("email");
-    var regex = /^[\w\-\.\+]+\@[a-zA-Z0-9\. \-]+\.[a-zA-z0-9]{2,4}$/;
-    if (!useremail.value.match(regex)) {
-        // emailSp.innerText = "Invalid Email";
-        useremail.nextElementSibling.innerText ="Invalid Email";
-        useremail.nextElementSibling.style.display = 'block' ;
-        return;
-        
-    }
-    if (useremail.value.match(regex)) {
-        useremail.nextElementSibling.style.display = 'none' ;
-    }
-}
-// export {inputValid,checkEmail,checkPass}
-
 
 let pushUserData = async (user) => {
     try {
@@ -66,7 +26,7 @@ let userSignUp = async (email, password) => {
             const user = userCredential.user;
             console.log("userData", user);
             pushUserData(user).then(() => {
-                window.location.replace("./pages/dashboard/dashboard.html");
+                window.location.replace("./pages/login/login.html");
             });
         })
         .catch((error) => {
@@ -81,8 +41,9 @@ let userSignUp = async (email, password) => {
 document.querySelector("#signUp-btn").addEventListener("click", () => {
     let emailValue = document.querySelector("#email").value;
     let passwordValue = document.querySelector("#password").value;
+    let phoneNo = document.querySelector("#phoneNo").value;
 
-    userSignUp(emailValue, passwordValue);
+    userSignUp(emailValue, passwordValue,phoneNo);
 });
 
 /// signup with google
@@ -95,7 +56,7 @@ document.querySelector("#google-signUp").addEventListener('click',()=>{
         // The signed-in user info.
         const user = result.user;
         pushUserData(user).then(() => {
-                window.location.replace("./pages/dashboard/dashboard.html");
+                window.location.replace("./pages/login/login.html");
             });
       }).catch((error) => {
         // Handle Errors here.
@@ -109,3 +70,4 @@ document.querySelector("#google-signUp").addEventListener('click',()=>{
         console.error(errorMessage,errorCode,email,credential);
       });
   })
+  
